@@ -212,8 +212,7 @@ RUN $go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
 RUN mkdir $payloads/nuclei
 WORKDIR $payloads/nuclei
 RUN git clone https://github.com/projectdiscovery/nuclei-templates.git
-RUN wget https://github.com/tamimhasan404/Open-Source-Nuclei-Templates-Downloader/blob/main/open-source-nuclei-templates-downloader.sh
-RUN open-source-nuclei-templates-downloader.sh
+RUN wget https://raw.githubusercontent.com/tamimhasan404/Open-Source-Nuclei-Templates-Downloader/main/open-source-nuclei-templates-downloader.sh && chmod +x open-source-nuclei-templates-downloader.sh && ./open-source-nuclei-templates-downloader.sh
 #metasploit
 RUN curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall
 #vhostscan
