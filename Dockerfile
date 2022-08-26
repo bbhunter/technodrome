@@ -214,6 +214,7 @@ WORKDIR $payloads/nuclei
 RUN git clone https://github.com/projectdiscovery/nuclei-templates.git
 RUN wget https://raw.githubusercontent.com/tamimhasan404/Open-Source-Nuclei-Templates-Downloader/main/open-source-nuclei-templates-downloader.sh && chmod +x open-source-nuclei-templates-downloader.sh && ./open-source-nuclei-templates-downloader.sh
 #metasploit
+WORKDIR /tmp
 RUN curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall
 #vhostscan
 WORKDIR $tools
@@ -224,6 +225,11 @@ RUN sed 's/^pandas.*/pandas/' -i requirements.txt
 RUN pip install -r requirements.txt
 RUN python3 setup.py install
 RUN pip3 install Levenshtein
+#brutespray
+WORKDIR $tools
+RUN git clone https://github.com/x90skysn3k/brutespray.git
+WORKDIR $tools/brutespray
+RUN pip3 install -r requirements.txt
 WORKDIR /tmp
 COPY ./scripts/update-path.sh /tmp/update-path.sh
 RUN chmod +x /tmp/update-path.sh
