@@ -26,5 +26,5 @@ done <"$file"
 echo "[+] building docker"
 docker build . -t technodrome
 echo "[+] running docker"
-docker run -v $(pwd)/wordlists:/root/wordlists -h technodrome -ti dozerman
+docker run -v $(pwd)/wordlists:/root/wordlists -h technodrome -ti technodrome
 
