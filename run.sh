@@ -15,7 +15,7 @@ do
 	        echo "export $line" >> ./configs/zsh
 done <"$file"
 echo "[+] building docker"
-docker build . -t dozerman
+docker build . -t technodrome
 echo "[+] running docker"
 docker run -v $(pwd)/wordlists:/root/wordlists -h technodrome -ti dozerman
 
