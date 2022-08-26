@@ -13,8 +13,8 @@ cd ../..
 echo "[+] getting latest version of technodrome"
 git pull
 echo "[+] downloading wordlists"
-add_wordlist("https://github.com/danielmiessler/SecLists.git","./wordlists/SecLists","git")
-add_wordlist("https://github.com/milo2012/pathbrute.git","./wordlists/pathbrute","git")
+add_wordlist "https://github.com/danielmiessler/SecLists.git" "./wordlists/SecLists" "git"
+add_wordlist "https://github.com/milo2012/pathbrute.git" "./wordlists/pathbrute" "git" 
 echo "[+] updating environmental variables from configs/env"
 file="./configs/env"
 zsh="./configs/zsh"
