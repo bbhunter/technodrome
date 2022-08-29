@@ -66,3 +66,4 @@ My own personal dockerfile and configs that I use for bug bounties.
 * [VHostScan](https://github.com/codingo/VHostScan)
 * [gau](https://github.com/lc/gau/)
 * [brutespray](https://github.com/x90skysn3k/brutespray)
+* [dnsvalidator](https://github.com/vortexau/dnsvalidator)
