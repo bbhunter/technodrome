@@ -67,3 +67,4 @@ My own personal dockerfile and configs that I use for bug bounties.
 * [gau](https://github.com/lc/gau/)
 * [brutespray](https://github.com/x90skysn3k/brutespray)
 * [dnsvalidator](https://github.com/vortexau/dnsvalidator)
+* [git-dumper](https://github.com/arthaud/git-dumper)
