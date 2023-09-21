@@ -1,11 +1,11 @@
-FROM debian:latest
+FROM debian:bullseye
 ENV RUNNING_IN_DOCKER true
 ENV tools="/root/tools"
 ENV payloads="/root/payloads"
 ENV go="/usr/bin/go/bin/go"
 #generics
 RUN apt-get update && apt-get -y install python python3-pip git unzip wget zsh curl tar chromium nodejs npm
-RUN wget https://go.dev/dl/go1.19.linux-amd64.tar.gz -O /tmp/go.tar.gz && tar xf /tmp/go.tar.gz -C /tmp && mv /tmp/go /usr/bin && wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
+RUN wget https://go.dev/dl/go1.20.linux-amd64.tar.gz -O /tmp/go.tar.gz && tar xf /tmp/go.tar.gz -C /tmp && mv /tmp/go /usr/bin && wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
 COPY ./configs/zsh /root/zsh
 RUN mkdir $tools && mkdir $payloads
 #sublist3r
@@ -107,7 +107,7 @@ RUN python3 setup.py install
 WORKDIR $tools
 RUN git clone https://github.com/devanshbatham/ParamSpider
 WORKDIR $tools/ParamSpider
-RUN pip install -r requirements.txt
+RUN pip install .
 #ffuf
 RUN $go install github.com/ffuf/ffuf@latest
 #commix
@@ -205,6 +205,8 @@ WORKDIR $tools
 RUN git clone https://github.com/vortexau/dnsvalidator.git
 WORKDIR $tools/dnsvalidator
 RUN python3 setup.py install
+#git-dumper
+RUN pip3 install git-dumper
 WORKDIR /tmp
 COPY ./scripts/update-path.sh /tmp/update-path.sh
 RUN chmod +x /tmp/update-path.sh && /tmp/update-path.sh
